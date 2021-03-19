@@ -1,7 +1,7 @@
 <template>
   <div class="main-content row">
     <div class="col main-inner">
-      <h1>Home</h1>
+      <h1>Projects</h1>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .main-content{
-  background: cornflowerblue;
+  background: rgb(172, 167, 96);
   height: 100%;
   display: flex;
   align-content: center;

@@ -1,24 +1,20 @@
 <template>
   <div class="main-content row">
     <div class="col main-inner">
-      <h1>Home</h1>
+      <h1>Live Chat</h1>
     </div>
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'Home',
-  components: {}
+
 }
 </script>
 
-
 <style scoped>
 .main-content{
-  background: cornflowerblue;
+  background: rgb(89, 110, 66);
   height: 100%;
   display: flex;
   align-content: center;
