@@ -4,7 +4,6 @@
       <div class="col-2 side-nav-container" v-if="showSideNav">
         <div class="auth">
             <h2>User Name</h2>
-            <button class="btn auth">Logout</button>
         </div>
         <div class="navbar">
             <nav>
@@ -25,6 +24,9 @@
         </div>
         <div class="theme">
             <button class="btn theme">Theme</button>
+        </div>
+        <div class="auth">
+            <button class="btn auth">Logout</button>
         </div>
       </div>
       <div class="col main-container">
@@ -72,7 +74,7 @@ export default {
   flex-direction: column;
   min-height: 100vh;
   min-width: 100px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .side-nav{
   background: rgb(204, 204, 204);
@@ -107,7 +109,11 @@ export default {
   background: rgb(247, 236, 179);
 }
 .auth{
-    margin: 20px auto;
+    font-size: 20px;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 
@@ -116,7 +122,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-    background: rgb(197, 167, 167);
+    margin-bottom: 80px;
   }
   nav {
     display: flex;
@@ -131,10 +137,11 @@ export default {
 
   }
   nav .links a, button {
-    margin-left: 16px;
     font-size: 20px;
+    padding: 16px 10px;
   }
   .theme{
+    font-size: 20px;
     padding: 16px 10px;
     display: flex;
     flex-direction: column;
