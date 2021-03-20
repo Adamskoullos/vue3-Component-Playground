@@ -1,37 +1,24 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-1 side-nav-container" v-if="showSideNav">
-        <div class="auth">
-            <h3>ProDev</h3>
-        </div>
-        <nav class="links">
-          <router-link :to="{ name: 'Chat' }" class="nav-link">
-            <div>
-              <span class="material-icons">chat_bubble</span>
-            </div>
-          </router-link>
-          <router-link :to="{ name: 'Projects' }" class="nav-link">
-            <div>
-              <span class="material-icons">dashboard</span>
-            </div>
-          </router-link>
-          <router-link :to="{ name: 'Bugs' }" class="nav-link">
-            <div>
-              <span class="material-icons">bug_report</span>
-            </div>
-          </router-link>
-        </nav>
-        <div class="logout">
-          <button class="btn"><span class="material-icons">logout</span></button>
-        </div>
-      </div>
       <div class="col main-container">
         <div class="row top-nav-container">
           <div class="col top-nav">
-            <div class="nav-div">
-                <button class="btn" @click="toggleSideNav"><span class="material-icons">menu</span></button>
-            </div>
+            <nav class="links">
+                <div class="nav-link">
+                    <span class="material-icons" @click="toggleSideChat">chat_bubble</span>
+                </div>
+                <router-link :to="{ name: 'Projects' }" class="nav-link">
+                    <div>
+                    <span class="material-icons">dashboard</span>
+                    </div>
+                </router-link>
+                <router-link :to="{ name: 'Bugs' }" class="nav-link">
+                    <div>
+                    <span class="material-icons">bug_report</span>
+                    </div>
+                </router-link>
+            </nav>
             <div class="theme">
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -40,6 +27,9 @@
             <div class="nav-div">
                 <h3>User Name</h3>
             </div>
+            <div class="logout">
+                <button class="btn"><span class="material-icons">logout</span></button>
+            </div>
           </div>
         </div>
         <div class="row main-content-div">
@@ -47,6 +37,9 @@
             <router-view/>
           </div>
         </div>
+      </div>
+      <div class="col-12 col-lg-4 side-nav-container" v-if="showSideChat">
+          <h1>Live Chat</h1>
       </div>
     </div>
   </div>
@@ -58,14 +51,14 @@ import { ref } from '@vue/reactivity'
 export default {
 
     setup(){
-        const showSideNav = ref(true)
+        const showSideChat = ref(false)
         const user = ref(true)
 
-        const toggleSideNav = () => {
-            showSideNav.value = !showSideNav.value
+        const toggleSideChat = () => {
+            showSideChat.value = !showSideChat.value
         }
 
-        return { toggleSideNav, showSideNav, user }
+        return { toggleSideChat, showSideChat }
     }
 }
 </script>
@@ -134,15 +127,17 @@ export default {
 .navbar {
     padding: 16px 10px;
     display: flex;
-    flex-direction: column;
     align-content: flex-start;
     margin-bottom: 80px;
   }
-  
+  nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
   nav .links {
     max-width: 1200px;
     display: flex;
-    flex-direction: column;
   }
   nav .links a, button {
     font-size: 20px;
@@ -157,9 +152,16 @@ export default {
   }
   nav span{
     display: inline-block;
-    min-width: 100px;
+    min-width: 20px;
+    color: rgb(107, 107, 107);
   }
   .material-icons{
     font-size: 30px;
+  }
+
+  .logout{
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
   }
 </style>

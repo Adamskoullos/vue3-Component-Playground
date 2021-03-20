@@ -1,12 +1,12 @@
 <template>
-  <Nav />
+  <Nav2 />
 </template>
 
 <script>
-import Nav from './components/Nav'
+import Nav2 from './components/Nav2'
 
 export default {
-  components: { Nav },
+  components: { Nav2 },
   setup() {}
 }
 </script>
