@@ -1,42 +1,44 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-2 side-nav-container" v-if="showSideNav">
+      <div class="col-1 side-nav-container" v-if="showSideNav">
         <div class="auth">
-            <h2>User Name</h2>
+            <h3>ProDev</h3>
         </div>
-        <div class="navbar">
-            <nav>
-                <div v-if="!user">
-                    <h1>Login</h1>
-                </div>
-                <div v-if="user">
-                    <nav>
-                        <div class="links">
-                            <router-link class="btn" :to="{ name: 'Home' }">Home</router-link>
-                            <router-link class="btn" :to="{ name: 'LiveChat' }">Live Chat</router-link>
-                            <router-link class="btn" :to="{ name: 'Projects' }">Projects</router-link>
-                            <router-link class="btn" :to="{ name: 'Bugs' }">Bugs</router-link>
-                        </div>
-                    </nav>
-                </div>
-            </nav>
-        </div>
-        <div class="theme">
-            <button class="btn theme">Theme</button>
-        </div>
-        <div class="auth">
-            <button class="btn auth">Logout</button>
+        <nav class="links">
+          <router-link :to="{ name: 'Chat' }" class="nav-link">
+            <div>
+              <span class="material-icons">chat_bubble</span>
+            </div>
+          </router-link>
+          <router-link :to="{ name: 'Projects' }" class="nav-link">
+            <div>
+              <span class="material-icons">dashboard</span>
+            </div>
+          </router-link>
+          <router-link :to="{ name: 'Bugs' }" class="nav-link">
+            <div>
+              <span class="material-icons">bug_report</span>
+            </div>
+          </router-link>
+        </nav>
+        <div class="logout">
+          <button class="btn"><span class="material-icons">logout</span></button>
         </div>
       </div>
       <div class="col main-container">
         <div class="row">
           <div class="col top-nav">
             <div class="nav-div">
-                <button class="btn" @click="toggleSideNav">Menu</button>
+                <button class="btn" @click="toggleSideNav"><span class="material-icons">menu</span></button>
+            </div>
+            <div class="theme">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+              </div>
             </div>
             <div class="nav-div">
-                <h2>ProDev</h2>
+                <h3>User Name</h3>
             </div>
           </div>
         </div>
@@ -56,7 +58,7 @@ import { ref } from '@vue/reactivity'
 export default {
 
     setup(){
-        const showSideNav = ref(false)
+        const showSideNav = ref(true)
         const user = ref(true)
 
         const toggleSideNav = () => {
@@ -73,20 +75,26 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 100px;
-  justify-content: space-between;
+  min-width: 110px;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(228, 228, 228);
 }
+
 .side-nav{
-  background: rgb(204, 204, 204);
+  background: rgb(228, 228, 228);
   flex: 1;
 }
-.side-nav-container h2{
-    margin-top: 15px;
+.side-nav-container h3{
+    margin: auto;
+    display: flex;
+    
 }
 .main-container{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  
 }
 .main-content-div{
   flex: 1;
@@ -95,14 +103,15 @@ export default {
   display: flex;
   align-content: center;
   justify-content:space-between;
-  background: rgb(163, 163, 163);
+  background: rgb(228, 228, 228);
   height: 75px;
 }
 .nav-div{
     display: flex;
     align-content: center;
+    justify-content: center;
 }
-.nav-div h2{
+.nav-div h3{
     margin: auto;
 }
 .main-content{
@@ -124,27 +133,28 @@ export default {
     align-content: flex-start;
     margin-bottom: 80px;
   }
-  nav {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  
   nav .links {
-    margin-left: auto;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-
   }
   nav .links a, button {
     font-size: 20px;
     padding: 16px 10px;
   }
   .theme{
-    font-size: 20px;
+    font-size: 25px;
     padding: 16px 10px;
     display: flex;
-    flex-direction: column;
-    align-content: flex-start;
+    align-items: center;
+    margin-left: auto;
+  }
+  nav span{
+    display: inline-block;
+    min-width: 100px;
+  }
+  .material-icons{
+    font-size: 30px;
   }
 </style>

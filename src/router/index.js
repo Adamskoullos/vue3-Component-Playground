@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import LiveChat from '../views/LiveChat.vue'
+import Chat from '../views/Chat.vue'
 import Projects from '../views/Projects.vue'
 import Bugs from '../views/Bugs.vue'
-
+import NewBug from '../views/NewBug.vue'
+import NewProject from '../views/NewProject.vue'
 const routes = [
   {
     path: '/',
@@ -11,9 +12,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/live-chat',
-    name: 'LiveChat',
-    component: LiveChat
+    path: '/chat',
+    name: 'Chat',
+    component: Chat
   },
   {
     path: '/projects',
@@ -21,10 +22,20 @@ const routes = [
     component: Projects
   },
   {
+    path: '/new-project',
+    name: 'NewProject',
+    component: NewProject
+  },
+  {
     path: '/bugs',
     name: 'Bugs',
     component: Bugs
   },
+  {
+    path: '/new-bug',
+    name: 'NewBug',
+    component: NewBug
+  }
   
 ]
 
