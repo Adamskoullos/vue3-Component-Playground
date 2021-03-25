@@ -1,4 +1,4 @@
-# vue3-bootstrap5-side-nav
+# vue3-Component-Playground
 
 ## Project setup
 ```
